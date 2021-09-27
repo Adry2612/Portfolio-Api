@@ -3,6 +3,8 @@ var tecnologyController = require('../controllers/tecnology')
 
 var router = express.Router()
 
-router.get('/tecnologies', tecnologyController.getTecnologies)
+var multiparty = require('connect-multiparty')
 
+router.get('/tecnologies', tecnologyController.getTecnologies)
+router.get('/get-image/:image', tecnologyController.getImages)
 module.exports = router;
