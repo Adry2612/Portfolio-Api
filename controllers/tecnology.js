@@ -14,7 +14,6 @@ var controller = {
     },
     getImages: function(req, res){
         var file = req.params.image;
-        console.log(req.params)
         var path_file = "./assets/tecnology-icons/"+file
 
         fs.access(path_file, (exists) => {
