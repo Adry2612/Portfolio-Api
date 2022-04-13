@@ -7,6 +7,7 @@ var app = express()
 var jobsRoutes = require('./routes/job')
 var educationRoutes = require('./routes/education')
 var tecnologyRoutes = require('./routes/tecnology')
+var proyectRoutes = require('./routes/proyect')
 
 // Middleware
 app.use(bodyParser.urlencoded({extended:false}))
@@ -25,5 +26,6 @@ app.use((req, res, next) => {
 app.use('/api', jobsRoutes)
 app.use('/api', educationRoutes)
 app.use('/api', tecnologyRoutes)
+app.use('/api', proyectRoutes)
 
 module.exports = app

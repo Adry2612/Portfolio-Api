@@ -1,21 +1,20 @@
-const Job = require('../models/job')
+const Proyect = require('../models/proyect')
 const fs = require('fs')
 const path = require('path')
 
 var controller = {
-    getJobs: function(req, res) {
-        Job.find({}).exec((err, jobs) => {
-            if(err) return res.status(500).send({message: "Error en el servidor"})
+    getProyects: function(req,res){
+        Proyect.find({}).exec((err,proyects) => {
+            if(err) return res.status(500).send({message: "Error en el servidor."})
 
-            if(!jobs) return res.status(400).send({message: "No hay empleos que mostrar."})
+            if(!proyects) return res.status(400).send({message: "No hay proyectos que mostrar."})
 
-            if(jobs) return res.status(200).send(jobs)
+            if(proyects) return res.status(200).send(proyects)
         })
     },
-
     getImages: function(req, res){
         var file = req.params.image;
-        var path_file = "./assets/job-icons/"+file
+        var path_file = "./assets/proyect-images/"+file
 
         fs.access(path_file, (exists) => {
             if(!exists){
