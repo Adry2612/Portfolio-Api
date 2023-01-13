@@ -4,7 +4,7 @@ const path = require('path')
 
 var controller = {
     getEducation: function(req,res){
-        Education.find({}).exec((err, education) => {
+        Education.find({}).sort({startDate: -1}).exec((err, education) => {
             if(err) return res.status(500).send({message: "Error en el servidor."})
 
             if(!education) return res.status(400).send({message: "No hay estudios que mostrar."})

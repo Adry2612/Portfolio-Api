@@ -4,7 +4,7 @@ const path = require('path')
 
 var controller = {
     getJobs: function(req, res) {
-        Job.find({}).exec((err, jobs) => {
+        Job.find({}).sort({startDate: 1}).exec((err, jobs) => {
             if(err) return res.status(500).send({message: "Error en el servidor"})
 
             if(!jobs) return res.status(400).send({message: "No hay empleos que mostrar."})
